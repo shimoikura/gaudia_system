@@ -20,6 +20,7 @@
                          @endforeach
                       </thead>
                    </table>
+                   {{ $students->links() }}
                 <div class="card-body">
                 </div>
             </div>

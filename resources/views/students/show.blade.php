@@ -5,22 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">生徒一覧</div>
+                <div class="card-header">生徒詳細</div>
                    <table class="table">
                       <thead>
                          <tr>
                             <th>ID</th>
                             <th>名前</th>
+                            <th>登録日</th>
                          </tr>
-                         @foreach($students as $student)
-                            <tr>
-                               <td>{{ $student->id }}</td>
-                               <td><a href="{{ route('students.show', $student->id) }}">{{ $student->name }}</a></td>
-                            </tr>
-                         @endforeach
+                         <tr>
+                            <td>{{ $student->id }}</td>
+                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->created_at->format('Y/m/d') }}</td>
+                         </tr>
                       </thead>
                    </table>
-                   {{ $students->links() }}
                 <div class="card-body">
                 </div>
             </div>

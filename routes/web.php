@@ -19,8 +19,14 @@ Route::get('/test', function () {
     return 'welcome to test page!';
 });
 
+/*
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show')->name('students.show');
+Route::post('/students/, 'StudentController@store');
+この３つは良く使うのでまとめられる↓
+*/
+
+Route::resource('students', 'StudentController');
 
 Auth::routes();
 

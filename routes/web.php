@@ -20,7 +20,7 @@ Route::get('/test', function () {
 });
 
 Route::get('/students', 'StudentController@index');
-Route::get('/students/{id}', 'StudentController@show')->where('id', '[0-9]+')->name('students.show');
+Route::get('/students/{student}', 'StudentController@show')->name('students.show');
 
 Auth::routes();
 

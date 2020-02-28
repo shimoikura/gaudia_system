@@ -46,10 +46,8 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        $student = Student::findOrFail($id);
-
         return view('students.show', compact('student'));
     }
 

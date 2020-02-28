@@ -6,6 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">生徒一覧</div>
+                   <div class="mb-3">
+                       <a href="{{ route('students.create') }}" class="btn btn-primary">生徒新規登録</a>
+                   </div>
                    <table class="table">
                       <thead>
                          <tr>

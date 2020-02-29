@@ -9,6 +9,7 @@
                    <div class="mb-3">
                        <a href="{{ route('students.create') }}" class="btn btn-primary">生徒新規登録</a>
                    </div>
+                   @include('components.alert')
                    <table class="table">
                       <thead>
                          <tr>
@@ -18,10 +19,19 @@
                          </tr>
                          @foreach($students as $student)
                             <tr>
-                               <td>{{ $student->id }}</td>
-                               <td>{{ $student->name }}</td>
-                               <td><a href="{{ route('students.show', $student) }}" class="btn btn-secondary btn-sm">表示</a></td>
-                               <td><a href="{{ route('students.edit', $student) }}" class="btn btn-secondary btn-sm">編集</a></td>
+                               <td class="align-middle">{{ $student->id }}</td>
+                               <td class="align-middle">{{ $student->name }}</td>
+                               <td class="align-middle">
+                                   <div class="d-flex">
+                                       <a href="{{ route('students.show', $student) }}" class="btn btn-secondary btn-sm ml-1">表示</a>
+                                       <a href="{{ route('students.edit', $student) }}" class="btn btn-secondary btn-sm ml-1">編集</a>
+                                       <form method="POST" action="{{ route('students.destroy',$student) }}">
+                                           @method('DELETE')
+                                           @csrf
+                                           <button onclick="return confirm('本当に削除しますか？')" class="btn btn-secondary btn-sm ml-1">削除</button>
+                                       </form>
+                                   </div>
+                               </td>
                             </tr>
                          @endforeach
                       </thead>

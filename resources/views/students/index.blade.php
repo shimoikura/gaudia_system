@@ -14,11 +14,14 @@
                          <tr>
                             <th>ID</th>
                             <th>名前</th>
+                            <th>操作</th>
                          </tr>
                          @foreach($students as $student)
                             <tr>
                                <td>{{ $student->id }}</td>
-                               <td><a href="{{ route('students.show', $student) }}">{{ $student->name }}</a></td>
+                               <td>{{ $student->name }}</td>
+                               <td><a href="{{ route('students.show', $student) }}" class="btn btn-secondary btn-sm">表示</a></td>
+                               <td><a href="{{ route('students.edit', $student) }}" class="btn btn-secondary btn-sm">編集</a></td>
                             </tr>
                          @endforeach
                       </thead>
